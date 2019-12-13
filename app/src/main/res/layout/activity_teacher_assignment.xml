@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    tools:context=".teacher_assignment"
+        android:orientation="vertical"
+    android:background="@drawable/main_background"
+        >
+    <Spinner
+        android:id="@+id/classspin"
+        android:layout_width="300dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:autofillHints="hello"
+        android:dropDownSelector="#a10ee6"
+        android:gravity="center" />
+        <EditText
+            android:layout_width="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/classspin"
+            android:layout_gravity="center"
+            android:id="@+id/edit1"
+            android:layout_height="wrap_content"
+            android:hint="Subject Name"/>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_below="@+id/edit1"
+            android:id="@+id/edit2"
+            android:layout_height="wrap_content"
+            android:hint="Date of Submission"/>
+
+
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/edit1"
+            android:id="@+id/edit3"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Choose File"
+            android:id="@+id/btn_filePicker"
+            android:layout_gravity="center"
+            android:textColor="#000"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@+id/edit2"
+        android:id="@+id/sub"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        />
+
+    </LinearLayout>
+
+

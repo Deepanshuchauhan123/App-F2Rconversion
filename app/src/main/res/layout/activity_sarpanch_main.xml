@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sarpanch_main"
+    android:orientation="vertical"
+    android:background="@drawable/sarpanchbcak2"
+    >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="सुझाव और समस्या पोर्टल"
+                android:paddingTop="40dp"
+                android:textSize="35dp"
+                android:textColor="#000000"/>
+    <Spinner
+        android:id="@+id/spinner_Admin"
+        android:background="@drawable/button_shape"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="70dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp"
+                android:background="#F5F3F3"
+                android:hint="  सुझाव और समस्या लिखें"
+                />
+</LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg2"
+                android:layout_marginTop="50dp"
+                android:text="प्राधिकरण को भेजें"
+                android:textSize="20sp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+</ScrollView>
+</LinearLayout>

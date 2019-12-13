@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    tools:context=".deo_update"
+        android:orientation="vertical"
+        android:background="@drawable/main_background">
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:paddingLeft="10dp"
+                android:text="क्या आप कार्यस्थल पर उपलब्ध हैं या नहीं ??"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                android:textColor="#131212"
+                />
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="हाँ"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="नहीं"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="सबमिट करे"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:background="@drawable/bg1"
+                />
+        </com.google.android.material.chip.ChipGroup>
+    </ScrollView>

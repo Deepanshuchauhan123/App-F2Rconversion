@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context=".teacher_report_update"
+        android:background="@drawable/main_background"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="रिपोर्ट अपलोड पोर्टल"
+                android:layout_marginTop="25dp"
+                android:textSize="40dp"
+                android:layout_marginLeft="50dp"
+                android:textColor="#000"
+                android:id="@+id/txt1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="नाम:   pahjg Mangal"
+                android:textSize="20dp"
+                android:layout_marginTop="50dp"
+                android:textColor="#000"
+                />
+            <LinearLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:hint="छात्र वजन दर्ज करें" />
+
+                <EditText
+                    android:id="@+id/txt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="15dp"
+                    android:inputType="number"
+                    android:hint="छात्र की ऊँचाई दर्ज करें" />
+
+
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:text="अद्यतन विवरण निर्दिष्ट करें"
+                    android:textSize="20sp"
+                    android:background="@drawable/btnbg2"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearlayout1">
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="व्यवहारिक ज्ञान:"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="25dp" />
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="245dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="सह-पाठ्यचर्या गतिविधि:"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="5dp"/>
+                <RatingBar
+                    android:id="@+id/ratingBar2"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="245dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="20dp"
+                    android:text="जमा करें"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/btnbg2"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>

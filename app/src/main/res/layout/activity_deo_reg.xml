@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+    tools:context=".deo_reg"
+        tools:ignore="ExtraText"
+
+        android:background="@drawable/main_background"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="127dp"
+                android:layout_marginTop="30dp"
+                app:srcCompat="@drawable/deologo"/>
+            <EditText
+                android:id="@+id/villager_adhaar"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                android:background="#ffffff"
+                android:layout_marginTop="40dp"
+                android:paddingLeft="10dp"
+                android:hint="आधार नंबर / आईडी"/>
+
+            <EditText
+                android:id="@+id/student_Name"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                android:layout_marginTop="20dp"
+                android:hint="पूरा नाम"/>
+
+
+            <EditText
+                android:id="@+id/villager_password"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:layout_marginTop="20dp"
+                android:hint="पासवर्ड"/>
+
+            <EditText
+                android:id="@+id/villager_cnf_password"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:layout_marginTop="20dp"
+                android:hint="पुनः पासवर्ड"/>
+
+
+            <EditText
+                android:id="@+id/villager_village"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:drawableLeft="@drawable/ic_my_location_black_24dp"
+                android:layout_marginTop="20dp"
+                android:hint="पूरा पता"/>
+            <EditText
+                android:id="@+id/villager_state"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:drawableLeft="@drawable/ic_my_location_black_24dp"
+                android:layout_marginTop="20dp"
+                android:hint="राज्य "/>
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="350dp"
+                android:paddingLeft="20dp"
+                android:layout_height="40dp"
+                android:textSize="16dp"
+                android:background="@drawable/bg1"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:text="रजिस्टर करें"/>
+
+        </LinearLayout>
+    </ScrollView>

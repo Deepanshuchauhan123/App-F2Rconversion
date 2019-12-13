@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "341133566461",
+    "firebase_url": "https://new-app-ef68f.firebaseio.com",
+    "project_id": "new-app-ef68f",
+    "storage_bucket": "new-app-ef68f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341133566461:android:f0723a0e08c27f04a5f994",
+        "android_client_info": {
+          "package_name": "com.example.app_deepanshu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341133566461-epderrc6lks3jinvgc8h64hl8pu5q49u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjhQ5gPb82quiNgRIvciRspngAsFAM9y0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341133566461-epderrc6lks3jinvgc8h64hl8pu5q49u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">App_Deepanshu</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="Login">login</string>
+    <string name="not_regis">not_registered</string>
+    <string name="not_registered">not_registered</string>
+    <string name="register">register</string>
+    <string name="Register">Register</string>
+    <string name="no_registered">Not Registered</string>
+    <string name="Adhaar">Adhaar number</string>
+    <string name="Password">Password</string>
+    <string name="Not_registered">Not Registered ?</string>
+    <string name="Not_register">Not Registered?</string>
+    <string name="or">--------------------or--------------------</string>
+    <string name="Or">----------------------------------Or-----------------------------------</string>
+    <string name="oor">--------------------------------Or---------------------------------</string>
+    <string name="orr">Or</string>
+    <string name="Updater">Updater/Admin</string>
+    <string name="submit">Submit</string>
+    <string name="cnf_Password">Confirm Password</string>
+    <string name="mobile">Mobile No.</string>
+    <string name="email">E-Mail</string>
+    <string name="village">Village</string>
+    <string name="city">City</string>
+    <string name="village_town_city">Village/Town/city</string>
+    <string name="state">State</string>
+    <string name="Loginn">स्वास्थ्य</string>
+    <string name="education">शिक्षा और विकास</string>
+    <string name="head">स्वास्थ्य और शिक्षा- सारथी</string>
+    <string-array name="stream">
+        <item>संकाय चुने </item>
+        <item>गणित </item>
+        <item>कला </item>
+        <item>जीवविज्ञान </item>
+        <item>वाणिज्य </item>
+        <item>कोई नहीं</item>
+    </string-array>
+
+    <string-array name="classes">
+        <item>कक्षा</item>
+        <item>कक्षा I</item>
+        <item>कक्षा II</item>
+        <item>कक्षा III</item>
+        <item>कक्षा VI</item>
+        <item>कक्षा V</item>
+        <item>कक्षा VI</item>
+        <item>कक्षा VII</item>
+        <item>कक्षा VIII</item>
+        <item>कक्षा IX</item>
+        <item>कक्षा X</item>
+        <item>कक्षा XI</item>
+        <item>कक्षा XII</item>
+    </string-array>
+    <string-array name="spec">
+        <item>विशिष्टता का चयन करें</item>
+        <item>दिल</item>
+        <item>आंखें </item>
+        <item>त्वचा </item>
+        <item>शल्य चिकित्सक </item>
+        <item>आपातकालीन डॉक्टर </item>
+        <item>कार्डियो </item>
+    </string-array>
+    <string-array name="bloodgroup">
+        <item>रक्त समूह </item>
+        <item>A+</item>
+        <item>A- </item>
+        <item>B+ </item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB- </item>
+        <item>O+ </item>
+        <item>O-</item>
+    </string-array>
+    <string-array name="choice">
+        <item>चुने  </item>
+        <item>हां </item>
+        <item>नहीं  </item>
+
+    </string-array>
+    <string-array name="hospital">
+        <item>अस्पताल चुनें</item>
+        <item>Rajiv gandhi general Hospital</item>
+        <item>Harish Hospital </item>
+        <item>Vivekananda Hospital </item>
+        <item>City Hospital </item>
+        <item>Rameshwar Dayal Hospital </item>
+        <item>Dr. Kalam Hospital </item>
+        <item>High-Tech Hospital </item>
+    </string-array>
+
+    <string name="appname">Spinner Example</string>
+    <string-array name="Class_Names">
+        <item>कक्षा चुने </item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+        <item>IX</item>
+        <item>X</item>
+        <item>XI</item>
+        <item>XII</item>
+    </string-array>
+    <string-array name="quiz1">
+        <item>विषय का चयन करें</item>
+        <item>भौतिक विज्ञान</item>
+        <item>गणित </item>
+        <item> रसायन विज्ञान </item>
+        <item>अंग्रेज़ी </item>
+        <item>हिंदी </item>
+        <item>जीवविज्ञान </item>
+    </string-array>
+
+    <string-array name="admin">
+        <item>अधिकारी चुनें</item>
+        <item>मुख्य स्वास्थ्य चिकित्सा अधिकारी</item>
+        <item>जिला शिक्षाधिकारी </item>
+
+    </string-array>
+</resources>

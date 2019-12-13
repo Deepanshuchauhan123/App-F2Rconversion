@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        tools:context=".Report_teacher"
+        android:background="@drawable/main_background">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="80dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="रिपोर्ट अपलोड पोर्टल"
+                android:textSize="35sp"
+                android:textColor="#000000"
+                android:id="@+id/txt1"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="center"
+                android:layout_marginTop="200dp"
+                android:orientation="vertical"
+                android:background="@drawable/button_shape"
+                >
+
+                <Spinner
+                    android:layout_marginTop="50dp"
+                    android:layout_width="230dp"
+                    android:layout_centerInParent="true"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/spinner"
+                    android:background="@color/colorPrimary"
+                    />
+
+                <EditText
+                    android:id="@+id/ed1"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_gravity="center"
+                    android:hint="रोल नंबर डालें"/>
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="जमा करें"
+                    android:layout_gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ok"
+                    android:textSize="20sp"
+                    android:background="@drawable/btnbg2"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+</ScrollView>
+    </ScrollView>

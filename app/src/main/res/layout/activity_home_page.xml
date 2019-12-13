@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home_page"
+    android:orientation="horizontal">
+
+
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true">
+
+
+
+   <LinearLayout
+
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+      android:orientation="vertical">
+
+
+
+      <RelativeLayout
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent">
+
+
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="230dp"
+         android:orientation="vertical"
+         android:gravity="center">
+
+         <ViewFlipper
+             android:id="@+id/v_flipper"
+             android:layout_width="match_parent"
+             android:layout_height="200dp"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true"
+             />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:background="@drawable/custom"
+
+          android:layout_marginTop="235dp">
+          <TextView
+              android:layout_width="wrap_content"
+
+              android:layout_height="wrap_content"
+              android:text="स्वास्थ्य पोर्टल"
+              android:textSize="38sp"
+              android:textStyle="bold"
+              android:textColor="#1A1B25"
+              android:layout_centerInParent="true"
+              android:layout_alignParentBottom="true"/>
+
+
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="135dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/image_doctor"
+                      android:src="@drawable/medicines"
+                      android:layout_centerInParent="true"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="दवाई"
+                      android:textSize="36sp"
+                      android:textStyle="bold"
+                      android:textColor="#ffffff"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentBottom="true"/>
+                  <Button
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/button_health"
+                      android:background="@android:color/transparent"/>
+
+               </RelativeLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/image_education"
+                      android:src="@drawable/ambulance"
+                      android:layout_centerInParent="true"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="रोगी वाहन"
+                      android:textSize="36sp"
+                      android:textStyle="bold"
+                      android:textColor="#ffffff"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentBottom="true"/>
+                  <Button
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/button_education"
+                      android:background="@android:color/transparent"/>
+
+               </RelativeLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+         </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="135dp"
+             android:orientation="horizontal"
+             android:layout_marginBottom="10dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/image_help"
+                      android:src="@drawable/doctor"
+                      android:layout_centerInParent="true"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="चिकित्सक"
+                      android:textSize="36sp"
+                      android:textStyle="bold"
+                      android:textColor="#ffffff"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentBottom="true"/>
+                  <Button
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/button_help"
+                      android:background="@android:color/transparent"/>
+
+               </RelativeLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/image_number"
+                      android:src="@drawable/all"
+                      android:layout_centerInParent="true"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="सभी देखें"
+                      android:textSize="36sp"
+                      android:textStyle="bold"
+                      android:textColor="#ffffff"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentBottom="true"/>
+                  <Button
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/button_number"
+                      android:background="@android:color/transparent"/>
+
+               </RelativeLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+         </LinearLayout>
+
+
+
+
+      </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_marginTop="235dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="स्वास्थ्य पोर्टल"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="#1A1B25"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="135dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:layout_marginLeft="5dp"
+                   android:layout_gravity="center"
+                   android:orientation="vertical">
+
+                  <RelativeLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+                     <ImageView
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:background="#2196F3"
+                         android:id="@+id/image_doctor2"
+                         android:src="@drawable/medicines"
+                         android:layout_centerInParent="true"/>
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="दवाई"
+                         android:textSize="36sp"
+                         android:textStyle="bold"
+                         android:textColor="#ffffff"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentBottom="true"/>
+                     <Button
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@+id/button_health2"
+                         android:background="@android:color/transparent"/>
+
+                  </RelativeLayout>
+
+
+
+
+
+               </androidx.cardview.widget.CardView>
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:layout_gravity="center"
+                   android:layout_marginLeft="5dp"
+                   android:orientation="vertical">
+
+                  <RelativeLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+                     <ImageView
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:background="#2196F3"
+                         android:id="@+id/image_education2"
+                         android:src="@drawable/am"
+                         android:layout_centerInParent="true"/>
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="रोगी वाहन"
+                         android:textSize="36sp"
+                         android:textStyle="bold"
+                         android:textColor="#ffffff"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentBottom="true"/>
+                     <Button
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@+id/button_education2"
+                         android:background="@android:color/transparent"/>
+
+                  </RelativeLayout>
+
+
+
+
+
+               </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:layout_marginLeft="5dp"
+                   android:layout_gravity="center"
+                   android:orientation="vertical">
+
+                  <RelativeLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+                     <ImageView
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:background="#2196F3"
+                         android:id="@+id/image_help2"
+                         android:src="@drawable/doctor"
+                         android:layout_centerInParent="true"/>
+
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="चिकित्सक"
+                         android:textSize="36sp"
+                         android:textStyle="bold"
+                         android:textColor="#ffffff"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentBottom="true"/>
+                     <Button
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@+id/button_help2"
+                         android:background="@android:color/transparent"/>
+
+                  </RelativeLayout>
+
+
+
+
+
+               </androidx.cardview.widget.CardView>
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:layout_gravity="center"
+                   android:layout_marginLeft="5dp"
+                   android:orientation="vertical">
+
+                  <RelativeLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+                     <ImageView
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:background="#2196F3"
+                         android:id="@+id/image_number2"
+                         android:src="@drawable/all"
+                         android:layout_centerInParent="true"/>
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="सभी देखें"
+                         android:textSize="36sp"
+                         android:textStyle="bold"
+                         android:textColor="#ffffff"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentBottom="true"/>
+                     <Button
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@+id/button_number2"
+                         android:background="@android:color/transparent"/>
+
+                  </RelativeLayout>
+
+
+
+
+
+               </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/bg1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="25dp">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="शिक्षा पोर्टल"
+                   android:textSize="38sp"
+                   android:textStyle="bold"
+                   android:textColor="#1A1B25"
+                   android:layout_centerInParent="true"
+                   android:layout_alignParentBottom="true"/>
+
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="135dp"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="10dp">
+
+
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="5dp"
+                      android:layout_gravity="center"
+                      android:orientation="vertical">
+
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#2196F3"
+                            android:id="@+id/image_doctor1"
+                            android:src="@drawable/school"
+                            android:layout_centerInParent="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="स्कूल अपडेट"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:textColor="#ffffff"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentBottom="true"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/button_health1"
+                            android:background="@android:color/transparent"/>
+
+                     </RelativeLayout>
+
+
+
+
+
+                  </androidx.cardview.widget.CardView>
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_gravity="center"
+                      android:layout_marginLeft="5dp"
+                      android:orientation="vertical">
+
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/image_education1"
+                            android:background="#2196F3"
+                            android:src="@drawable/vedio"
+                            android:layout_centerInParent="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="शिक्षक वीडियो कॉल"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:textColor="#ffffff"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentBottom="true"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/button_education1"
+                            android:background="@android:color/transparent"/>
+
+                     </RelativeLayout>
+
+
+
+
+
+                  </androidx.cardview.widget.CardView>
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="135dp"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="10dp">
+
+
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="5dp"
+                      android:layout_gravity="center"
+                      android:orientation="vertical">
+
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/image_help1"
+                            android:src="@drawable/atten"
+                            android:layout_centerInParent="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="छात्र उपस्थिति"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:textColor="#ffffff"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentBottom="true"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/button_help1"
+                            android:background="@android:color/transparent"/>
+
+                     </RelativeLayout>
+
+
+
+
+
+                  </androidx.cardview.widget.CardView>
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_gravity="center"
+                      android:layout_marginLeft="5dp"
+                      android:orientation="vertical">
+
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/image_number1"
+                            android:src="@drawable/v"
+                            android:layout_centerInParent="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="सभी देखें"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:textColor="#ffffff"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentBottom="true"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/view_school"
+                            android:background="@android:color/transparent"/>
+
+                     </RelativeLayout>
+
+
+
+
+
+                  </androidx.cardview.widget.CardView>
+
+
+               </LinearLayout>
+
+
+            </LinearLayout>
+
+         </LinearLayout>
+
+      </RelativeLayout>
+   </LinearLayout>
+</ScrollView>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

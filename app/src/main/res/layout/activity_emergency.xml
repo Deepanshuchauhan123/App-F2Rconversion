@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".emergency"
+    android:orientation="vertical"
+    android:background="@drawable/main_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:paddingLeft="20dp"
+        android:text="अस्पताल का चयन करें"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <Spinner
+        android:id="@+id/spinner_group"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:drawableLeft="@drawable/ic_import_contacts_black_24dp" />
+
+    <Button
+        android:layout_width="234dp"
+        android:layout_height="46dp"
+        android:layout_gravity="left"
+        android:text="एम्बुलेंस(108)"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_call_black_24dp"
+        android:background="@drawable/ambulance"/>
+
+
+    <Button
+        android:layout_width="184dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:text="चेतावनी"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_local_pharmacy_black_24dp"
+        android:background="@drawable/ambulance"
+        />
+</LinearLayout>

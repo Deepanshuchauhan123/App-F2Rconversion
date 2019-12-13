@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Start_Activity"
+        tools:ignore="ExtraText"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/main_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="125dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mmm1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp"
+                        android:textSize="32dp"
+                        android:text="@string/head"
+                        android:textColor="#000000"
+                        />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:layout_gravity="center_horizontal"
+                    >
+
+                    <Button
+                        android:id="@+id/button_health"
+                        android:layout_width="245dp"
+                        android:layout_height="50dp"
+                        android:textSize="25dp"
+                        android:background="@drawable/btnbg2"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#000000"
+                        android:text="@string/Loginn"/>
+
+                    <Button
+                        android:id="@+id/button_education"
+                        android:layout_width="245dp"
+                        android:layout_height="50dp"
+                        android:textSize="25dp"
+                        android:background="@drawable/btnbg2"
+                        android:layout_marginTop="115dp"
+                        android:textColor="#000000"
+                        android:text="@string/education"/>
+
+                    <Button
+                        android:id="@+id/button_duty"
+                        android:layout_width="245dp"
+                        android:layout_height="50dp"
+                        android:textSize="25dp"
+                        android:background="@drawable/btnbg2"
+                        android:layout_marginTop="205dp"
+                        android:textColor="#000000"
+                        android:text="प्रमुख अधिकारी"
+                        android:layout_marginBottom="30dp"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="50dp"
+
+                    android:background="@drawable/applogo"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+

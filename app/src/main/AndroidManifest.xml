@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.app_deepanshu">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_main_main"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SubjectDetailActivity"></activity>
+        <activity android:name=".teacher_Self_Display" />
+        <activity android:name=".edu_start" />
+        <activity android:name=".teacher_self_grid" />
+        <activity android:name=".self_teachers_support" />
+        <activity android:name=".Teacher_self_Detail" />
+        <activity android:name=".teacher_report_update" />
+        <activity android:name=".Report_teacher" />
+        <activity android:name=".Sarpanch_reg" />
+        <activity android:name=".Sarpanch_login" />
+        <activity android:name=".Sarpanch_main" />
+        <activity android:name=".Doctor_main" />
+        <activity android:name=".Start_Activity" />
+        <activity android:name=".parents_grid" />
+        <activity android:name=".quiz_student_main_part1" />
+        <activity android:name=".student_quiz" />
+        <activity android:name=".teacher_upload" />
+        <activity android:name=".teacher_assignment" />
+        <activity android:name=".innovation_grid" />
+        <activity android:name=".quiz_grid" />
+        <activity android:name=".student_grid" />
+        <activity android:name=".deo_update" />
+        <activity android:name=".collector_update" />
+        <activity android:name=".chmo_update" />
+        <activity android:name=".collector_reg" />
+        <activity android:name=".chmo_reg" />
+        <activity android:name=".chmo_login" />
+        <activity android:name=".collector_login" />
+        <activity android:name=".admin_chart" />
+        <activity android:name=".doctor_avail" />
+        <activity android:name=".emergency" />
+        <activity android:name=".hospital_enquiry" />
+        <activity android:name=".patient_choice1" />
+        <activity android:name=".blood_page" />
+        <activity android:name=".medicine_page" />
+        <activity android:name=".donor_selcet" />
+        <activity android:name=".donor_reg" />
+        <activity android:name=".donor_login" />
+        <activity android:name=".doctor_reg" />
+        <activity android:name=".teacher_grid" />
+        <activity android:name=".doctor_login" />
+        <activity android:name=".patient_reg" />
+        <activity android:name=".patient_login" />
+        <activity android:name=".deo_reg" />
+        <activity android:name=".teacher_reg" />
+        <activity android:name=".parents_reg" />
+        <activity android:name=".student_reg" />
+        <activity android:name=".deo_login" />
+        <activity android:name=".parents_login" />
+        <activity android:name=".student_login" />
+        <activity android:name=".health_cat" />
+        <activity android:name=".second_cat" />
+        <activity android:name=".first_cat" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
