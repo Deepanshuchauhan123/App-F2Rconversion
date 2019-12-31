@@ -32,9 +32,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#141314"
-                    android:textStyle="bold"
-                    android:textSize="35dp"
-                    android:text="अपनी दाता श्रेणी चुने "/>
+                    android:textSize="30dp"
+                    android:text="@string/cat_donor"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -46,12 +45,11 @@
 
                     android:paddingLeft="10dp"
                     android:layout_height="130dp"
-                    android:textSize="50dp"
+                    android:textSize="40dp"
                     android:background="@drawable/bg1"
-                    android:textStyle="bold"
                     android:layout_marginTop="25dp"
                     android:textColor="#FFFFFF"
-                    android:text="दवाएं "/>
+                    android:text="@string/Medicine"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -61,14 +59,12 @@
                     android:id="@+id/button_blood"
                     android:layout_width="300dp"
                     android:paddingLeft="10dp"
-
                     android:layout_height="130dp"
-                    android:textSize="47dp"
+                    android:textSize="40dp"
                     android:background="@drawable/bg1"
-                    android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:textColor="#FFFFFF"
-                    android:text="रक्त"/>
+                    android:text="@string/blood"/>
 
             </LinearLayout>
         </LinearLayout>

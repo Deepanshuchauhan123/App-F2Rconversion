@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="इनोवेशन पोर्टल"
+                    android:text="@string/innovation"
                     android:id="@+id/textgrid"
                     android:layout_centerInParent="true"
                     android:textColor="#000"
@@ -88,9 +88,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text=" विचार-विमर्श"
+                            android:text="@string/chat"
                             android:textAlignment="center"
-                            android:textSize="20sp"
+                            android:textSize="25sp"
                             android:textStyle="bold" />
 
 
@@ -131,9 +131,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नवाचार"
+                            android:text="@string/new_idea"
                             android:textAlignment="center"
-                            android:textSize="22sp"
+                            android:textSize="23sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -172,7 +172,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="विचार साझा करना "
+                            android:text="@string/submit_ideas"
                             android:textAlignment="center"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -213,9 +213,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="विज्ञान, प्रौद्योगिकी, इंजीनियरिंग और गणित (STEM) "
+                            android:text="@string/stem"
                             android:textAlignment="center"
-                            android:textSize="22sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 

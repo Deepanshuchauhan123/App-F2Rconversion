@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">एप्प_दीपांशु </string>
+
+
+
+
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="Login">login</string>
+    <string name="not_regis">not_registered</string>
+    <string name="not_registered">not_registered</string>
+    <string name="register">register</string>
+    <string name="Register">Register</string>
+    <string name="no_registered">Not Registered</string>
+    <string name="Adhaar">Adhaar number</string>
+    <string name="Password">Password</string>
+    <string name="Not_registered">Not Registered ?</string>
+    <string name="Not_register">Not Registered?</string>
+    <string name="or">--------------------or--------------------</string>
+    <string name="Or">----------------------------------Or-----------------------------------</string>
+    <string name="oor">--------------------------------Or---------------------------------</string>
+    <string name="orr">Or</string>
+    <string name="Updater">Updater/Admin</string>
+    <string name="submit">Submit</string>
+    <string name="cnf_Password">Confirm Password</string>
+    <string name="mobile">Mobile No.</string>
+    <string name="email">E-Mail</string>
+    <string name="village">Village</string>
+    <string name="city">City</string>
+    <string name="village_town_city">Village/Town/city</string>
+    <string name="state">State</string>
+    <string name="Health">स्वास्थ्य</string>
+    <string name="Education">शिक्षा और विकास</string>
+    <string name="head">स्वास्थ्य और शिक्षा- सारथी</string>
+    <string name="appname">Spinner Example</string>
+
+
+
+
+
+
+
+
+
+
+    <string name="app_title">स्वास्थ्य और शिक्षा- सारथी</string>
+    <string name="health_first_btn">स्वास्थ्य </string>
+    <string name="Eduction">शिक्षा और विकास </string>
+    <string name="main_people">प्रमुख अधिकारी </string>
+    <string name="changelang">अपनी भाषा चुने</string>
+    <string name="welcome">आपका स्वागत है</string>
+    <string name="select_type">अपना वर्ग चुनें</string>
+    <string name="school">विद्यालय</string>
+    <string name="schl_login">विद्यालय  के रूप में लॉगिन करें</string>
+    <string name="teach">अध्यापक</string>
+    <string name="teach_log">शिक्षक के रूप में लॉगिन करें</string>
+    <string name="student">छात्र</string>
+    <string name="stud_login">विद्यार्थी के रूप में लॉगिन करें</string>
+    <string name="parent">माता-पिता</string>
+    <string name="parent_log">अभिभावक के रूप में लॉगिन करें</string>
+    <string name="patient">रोगी</string>
+    <string name="patient_log">रोगी के रूप में लॉगिन करें</string>
+    <string name="donor">दाता</string>
+    <string name="log_donor">दाता के रूप में लॉगिन करें</string>
+    <string name="doctor">चिकित्सक</string>
+    <string name="log_doc">चिकित्सक के रूप में लॉगिन करें</string>
+    <string name="collector">कलेक्टर </string>
+    <string name="sarpanch">सरपंच</string>
+    <string name="deo">जिला शिक्षाधिकारी</string>
+    <string name="cmho">मुख्य स्वास्थ्य चिकित्सा अधिकारी</string>
+    <string name="Name">नाम</string>
+    <string name="guardian">पिता/संरक्षक  का  नाम</string>
+    <string name="Adhaar_no">स्वयं का आधार नंबर</string>
+    <string name="batch">कक्षा का बैच डाले</string>
+    <string name="add_btn">विद्यार्थी जोड़े</string>
+    <string name="back">पीछे जाए</string>
+    <string name="submit_btn">सबमिट करे</string>
+    <string name="OR">अथवा</string>
+    <string name="Reg">रजिस्टर करे</string>
+    <string name="pass">पासवर्ड</string>
+    <string name="e_mail">ईमेल पता</string>
+    <string name="cnf_pass">पुनः पासवर्ड</string>
+    <string name="address">पूरा पता</string>
+    <string name="states">राज्य</string>
+    <string name="available"> क्या आप कार्यस्थल पर उपलब्ध हैं या नहीं ??</string>
+    <string name="yes">हाँ</string>
+    <string name="No">नहीं</string>
+    <string name="Log">लॉग इन करें</string>
+    <string name="hos_name">अस्पताल का नाम</string>
+    <string name="father_name">पिता/संरक्षक का नाम</string>
+    <string name="Mobile">मोबाइल नंबर</string>
+    <string name="schl_name">विद्यालय का नाम</string>
+    <string name="schl_key">विद्यालय पंजीकरण नम्बर</string>
+    <string name="adhaar_father">पिता का आधार नंबर</string>
+    <string name="cat_donor">अपनी दाता श्रेणी चुने</string>
+    <string name="Medicine">दवाएं</string>
+    <string name="blood">रक्त</string>
+    <string name="innovation">इनोवेशन पोर्टल</string>
+    <string name="chat"> विचार-विमर्श</string>
+    <string name="new_idea">नवाचार</string>
+    <string name="submit_ideas">विचार साझा करना</string>
+    <string name="stem">विज्ञान, प्रौद्योगिकी, इंजीनियरिंग और गणित(STEM)</string>
+    <string name="parent_por">माता-पिता पोर्टल</string>
+    <string name="stu_report">आपके बच्चे की प्रदर्शन रिपोर्ट</string>
+    <string name="attn">अपने छात्र की उपस्थिति</string>
+    <string name="feedback">स्कूल के बारे में प्रतिक्रिया दें</string>
+    <string name="contact">शिक्षक से बात-चीत</string>
+    <string name="quiz">क्विज पोर्टल</string>
+    <string name="feed">सुझाव और समस्या पोर्टल</string>
+    <string name="sugg">सुझाव और समस्या लिखें</string>
+    <string name="send">प्राधिकरण को भेजें</string>
+    <string name="hmp">स्कूल हेडमास्टर पोर्टल</string>
+    <string name="skgd">स्कूल की गतिविधियाँ डाले</string>
+    <string name="schol_teachers">विद्यालय के अध्यापक</string>
+    <string name="student_portal">विद्यार्थी पोर्टल</string>
+    <string name="assign">असाइनमेंट पोर्टेल</string>
+    <string name="quiz_portal">क्विज पोर्टल</string>
+    <string name="notes">नोट्स पोर्टल</string>
+    <string name="feedback_stu">प्रतिक्रिया</string>
+    <string name="vedio">विडिओ देखे</string>
+    <string name="gsas">सरकारी योजना व छात्रवृति</string>
+    <string name="activities">अतिरिक्त पाठयक्रम गतिविधयां</string>
+    <string name="edu_work">शैक्षणिक कार्य भार</string>
+    <string name="self_teach">स्वः शिक्षण विवरण डाले</string>
+    <string name="self_tch">स्वः शिक्षण विवरण देखे</string>
+    <string name="subject">अपनी विषय डाले</string>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="माता-पिता पोर्टल "
+                    android:text="@string/parent_por"
                     android:id="@+id/textgrid"
                     android:layout_centerInParent="true"
                     android:textColor="#000"
@@ -88,7 +88,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text=" आपके बच्चे की प्रदर्शन रिपोर्ट "
+                            android:text="@string/stu_report"
                             android:textAlignment="center"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -131,7 +131,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="अपने छात्र की उपस्थिति"
+                            android:text="@string/attn"
                             android:textAlignment="center"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -151,7 +151,7 @@
                     app:cardElevation="8dp">
 
                     <Button
-                        android:id="@+id/btn3"
+                        android:id="@+id/btn13"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent" />
@@ -172,7 +172,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="स्कूल के बारे में प्रतिक्रिया दें "
+                            android:text="@string/feedback"
                             android:textAlignment="center"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -214,7 +214,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="शिक्षक से बात-चीत  "
+                            android:text="@string/contact"
                             android:textAlignment="center"
                             android:textSize="22sp"
                             android:textStyle="bold" />

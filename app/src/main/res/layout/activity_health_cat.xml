@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="आपका स्वागत है"
-            android:textStyle="bold"
+            android:text="@string/welcome"
             android:layout_marginTop="15dp"
             android:textColor="#131212"
             android:textSize="50sp"
@@ -29,17 +28,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="अपना वर्ग चुनें"
+        android:text="@string/select_type"
         android:layout_marginTop="13dp"
         android:textColor="#4a4a4a"
-        android:textSize="50sp"
+        android:textSize="38sp"
         />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="65dp"
             android:padding="12dp"
             android:background="@drawable/border"
             android:layout_marginLeft="20dp"
@@ -63,14 +62,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="रोगी"
+                        android:text="@string/patient"
                         android:textSize="15dp"
                         android:textColor="#4a4a4a"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="रोगी के रूप में लॉगिन करें"
+                        android:text="@string/patient_log"
                         android:textSize="12dp"
                         android:textColor="#4a4a4a"/>
 
@@ -110,14 +109,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="दाता"
+                        android:text="@string/donor"
                         android:textStyle="bold"
                         android:textSize="15dp"
                         android:textColor="#4a4a4a"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="दाता के रूप में लॉगिन करें"
+                        android:text="@string/log_donor"
                         android:textStyle="bold"
                         android:textSize="12dp"
                         android:textColor="#4a4a4a"/>
@@ -159,14 +158,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="चिकित्सक"
+                        android:text="@string/doctor"
                         android:textSize="15dp"
                         android:textColor="#4a4a4a"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="चिकित्सक के रूप में लॉगिन करें"
+                        android:text="@string/log_doc"
                         android:textSize="12dp"
                         android:textColor="#4a4a4a"/>
 
@@ -178,54 +177,6 @@
                     android:background="@android:color/transparent"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:padding="12dp"
-        android:background="@drawable/border"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_account_circle_black_24dp"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="50dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="औद्योगिक समूह"
-                    android:textSize="15dp"
-                    android:textColor="#4a4a4a"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="औद्योगिक समूह के रूप में लॉगिन करें"
-                    android:textSize="12dp"
-                    android:textColor="#4a4a4a"/>
-
-            </LinearLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/industry"
-                android:background="@android:color/transparent"/>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
 </LinearLayout>
     </ScrollView>
     </LinearLayout>

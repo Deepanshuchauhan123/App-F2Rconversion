@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="स्वः शिक्षण विवरण "
-            android:textSize="50dp"
+            android:text="@string/self_tch"
+            android:textSize="35dp"
             android:layout_marginTop="30dp"
             android:textColor="#0F0E0E"/>
 
@@ -84,7 +84,7 @@
                 android:layout_marginTop="10dp"
                 android:background="#ffff"
                 android:gravity="center"
-                android:hint="अपनी विषय डाले "/>
+                android:hint="@string/subject"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:id="@+id/batch"
                 android:layout_marginTop="80dp"
                 android:background="#ffff"
-                android:hint="कक्षा का बैच डाले  "/>
+                android:hint="@string/batch"/>
             </RelativeLayout>
         </LinearLayout>
 

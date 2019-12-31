@@ -22,9 +22,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="सुझाव और समस्या पोर्टल"
+                android:text="@string/feed"
                 android:paddingTop="40dp"
-                android:textSize="35dp"
+                android:textSize="30dp"
                 android:textColor="#000000"/>
     <Spinner
         android:id="@+id/spinner_Admin"
@@ -41,7 +41,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="30dp"
                 android:background="#F5F3F3"
-                android:hint="  सुझाव और समस्या लिखें"
+                android:hint="@string/sugg"
                 />
 </LinearLayout>
             <Button
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btnbg2"
                 android:layout_marginTop="50dp"
-                android:text="प्राधिकरण को भेजें"
+                android:text="@string/send"
                 android:textSize="20sp"
                 android:layout_marginBottom="30dp"/>
 

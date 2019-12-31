@@ -37,7 +37,7 @@
                 android:background="@drawable/button_shape"
                 android:layout_marginTop="40dp"
                 android:paddingLeft="20dp"
-                android:hint=" ईमेल पता दर्ज"/>
+                android:hint="@string/e_mail"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +57,7 @@
                 android:background="@drawable/button_shape"
                 android:layout_marginTop="40dp"
                 android:paddingLeft="20dp"
-                android:hint=" नाम"/>
+                android:hint="@string/Name"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +78,7 @@
                 android:background="@drawable/button_shape"
                 android:layout_marginTop="40dp"
                 android:paddingLeft="20dp"
-                android:hint="पिता/संरक्षक  का  नाम "/>
+                android:hint="@string/father_name"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                 android:paddingLeft="20dp"
                 android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="स्वयं का आधार नंबर "/>
+                android:hint="@string/Adhaar_no"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -116,7 +116,7 @@
                 android:inputType="number"
                 android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint=" पिता का आधार नंबर  "/>
+                android:hint="@string/adhaar_father"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -136,7 +136,7 @@
                 android:inputType="textWebPassword"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="पासवर्ड "/>
+                android:hint="@string/pass"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -156,7 +156,7 @@
                 android:inputType="textWebPassword"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="सुनिश्चित पासवर्ड "/>
+                android:hint="@string/cnf_pass"/>
             </com.google.android.material.textfield.TextInputLayout>/
 
 
@@ -176,7 +176,7 @@
                 android:paddingLeft="20dp"
                 android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="पिता का मोबाइल नंबर "/>
+                android:hint="@string/Mobile"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -194,7 +194,7 @@
                 android:paddingLeft="20dp"
                 android:drawableLeft="@drawable/ic_my_location_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="गांव / तहसील /जिला "/>
+                android:hint="@string/address"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -212,7 +212,7 @@
                 android:paddingLeft="20dp"
                 android:drawableLeft="@drawable/ic_my_location_black_24dp"
                 android:layout_marginTop="20dp"
-                android:hint="राज्य "/>
+                android:hint="@string/states"/>
             </com.google.android.material.textfield.TextInputLayout>
             <ProgressBar
                 android:id="@+id/simpleProgressBar"
@@ -231,7 +231,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="10dp"
-                android:text="पजीकरण करे "/>
+                android:text="@string/Reg"/>
 
         </LinearLayout>
     </ScrollView>

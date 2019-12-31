@@ -17,7 +17,8 @@ private RecyclerView mRecyclerView;
         mRecyclerView= (RecyclerView)findViewById(R.id.recyclerview_subjects);
         new FirebaseDatabaseHelper().readSubjects(new FirebaseDatabaseHelper.DataStatus() {
             @Override
-            public void DataisLoaded(List<teacher> subjects, List<String> keys) {
+            public void DataisLoaded(List<teacher> subjects, List<String> keys)
+            {
                 new RecyclerView_Config().setConfig(mRecyclerView,teacher_Self_Display.this,subjects,keys);
             }
 

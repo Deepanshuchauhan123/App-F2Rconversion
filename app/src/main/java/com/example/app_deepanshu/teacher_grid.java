@@ -35,13 +35,13 @@ public class teacher_grid extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        report = (Button) findViewById(R.id.btn2);
+        report = (Button) findViewById(R.id.student_detail);
         report.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(teacher_grid.this, teacher_upload.class);
+                Intent i = new Intent(teacher_grid.this, Add_Student.class);
                 startActivity(i);
             }
         });

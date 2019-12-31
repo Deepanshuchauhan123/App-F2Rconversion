@@ -12,11 +12,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirebaseDatabaseHelper {
-    private FirebaseDatabase mDatabase;
-    private DatabaseReference mReferenceSubjects;
+public class FirebaseDatabaseHelper extends Add_Student{
+    private FirebaseDatabase mDatabase, sDatabase;
+    private DatabaseReference mReferenceSubjects, mReferenceStudent,mRef;
+    public String value;
+    public String sub_Class;
     private List<teacher> subjects =new ArrayList<>();
-
     public interface DataStatus{
         void DataisLoaded(List<teacher> subjects,List<String>keys);
         void DataIsInserted();
@@ -25,6 +26,43 @@ public class FirebaseDatabaseHelper {
     }
 
     public FirebaseDatabaseHelper() {
+        sub_Class =Add_Student.citem;
+
+
+
+
+
+        mRef = FirebaseDatabase.getInstance()
+                .getReference("Teacher_portal").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        mRef.child("School_Verify_Key").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                value = snapshot.getValue().toString();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+        sDatabase =FirebaseDatabase.getInstance();
+        mReferenceStudent = sDatabase.getReference("School_Students").child(value);
+
+
+
+
+
+
+
+
         mDatabase =FirebaseDatabase.getInstance();
         mReferenceSubjects = mDatabase.getReference("Teacher_portal").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Teacher_Subjects");
     }
@@ -66,5 +104,17 @@ public class FirebaseDatabaseHelper {
                     dataStatus.DataIsDeleted();
                 }
             });
+    }
+
+    public void addStudent(Student_model stu,final DataStatus dataStatus)
+    {
+        String key=mReferenceStudent.child(sub_Class).push().getKey();
+        mReferenceStudent.child(key).setValue(stu)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    dataStatus.DataIsInserted();
+                    }
+                });
     }
 }

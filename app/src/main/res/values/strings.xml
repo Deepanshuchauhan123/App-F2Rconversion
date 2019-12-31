@@ -25,9 +25,96 @@
     <string name="city">City</string>
     <string name="village_town_city">Village/Town/city</string>
     <string name="state">State</string>
-    <string name="Loginn">स्वास्थ्य</string>
-    <string name="education">शिक्षा और विकास</string>
+    <string name="Health">स्वास्थ्य</string>
+    <string name="Education">शिक्षा और विकास</string>
     <string name="head">स्वास्थ्य और शिक्षा- सारथी</string>
+    <string name="appname">Spinner Example</string>
+
+
+
+    <string name="app_title">Health and Education App</string>
+    <string name="health_first_btn">Health</string>
+    <string name="Eduction">Education</string>
+    <string name="main_people">Main Officers</string>
+    <string name="changelang">Choose Language</string>
+    <string name="welcome">Welcome</string>
+    <string name="select_type">Select your cateogry</string>
+    <string name="school">School</string>
+    <string name="schl_login">Login as a School</string>
+    <string name="teach">Teacher</string>
+    <string name="teach_log">Login as a Teacher</string>
+    <string name="student">Student</string>
+    <string name="stud_login">Login as a Student</string>
+    <string name="parent">Parents</string>
+    <string name="parent_log">Login as a Parent</string>
+    <string name="patient">Patient</string>
+    <string name="patient_log">Login as a Patient</string>
+    <string name="donor">Donor</string>
+    <string name="log_donor">Login as a Donor</string>
+    <string name="doctor">Doctor</string>
+    <string name="log_doc">Login as a Doctor</string>
+    <string name="collector">Collector</string>
+    <string name="sarpanch">Sarpanch</string>
+    <string name="deo">District Education Officer</string>
+    <string name="cmho">Chief Medical Health Officer</string>
+    <string name="Name">Enter Name</string>
+    <string name="guardian">Enter Father Name</string>
+    <string name="Adhaar_no">Enter Adhaar Number</string>
+    <string name="batch">Enter Batch</string>
+    <string name="add_btn">Add Student</string>
+    <string name="back">Back</string>
+    <string name="submit_btn">Submit</string>
+    <string name="OR">Or</string>
+    <string name="Reg">Register</string>
+    <string name="pass">Password</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="cnf_pass">Confirm Password</string>
+    <string name="address">Full Address</string>
+    <string name="states">State</string>
+    <string name="available">Are you available at your office??</string>
+    <string name="yes">Yes</string>
+    <string name="No">No</string>
+    <string name="Log">Login</string>
+    <string name="hos_name">Hospital Name</string>
+    <string name="father_name">Father Name</string>
+    <string name="Mobile">Mobile Number</string>
+    <string name="schl_name">School Name</string>
+    <string name="schl_key">Enter School Verify Key</string>
+    <string name="adhaar_father">Enter Father Adhaar No.</string>
+    <string name="cat_donor">Select Your Donor cateogry</string>
+    <string name="Medicine">Medicines</string>
+    <string name="blood">Blood</string>
+    <string name="innovation">Innovation Portal</string>
+    <string name="chat">Chat</string>
+    <string name="new_idea">New Ideas</string>
+    <string name="submit_ideas">New Ideas Submit</string>
+    <string name="stem">Science, technology, engineering, and mathematics</string>
+    <string name="parent_por">Parent Portal</string>
+    <string name="stu_report">Your Ward Report</string>
+    <string name="attn">Your Ward Attendence</string>
+    <string name="feedback">School Feedback</string>
+    <string name="contact">Teachers Contact</string>
+    <string name="quiz">Quiz Portal</string>
+    <string name="feed">Suggestion and Feedback Portal</string>
+    <string name="sugg">Suggestion or Feedback</string>
+    <string name="send">Send</string>
+    <string name="hmp">School HeadMaster Portal</string>
+    <string name="skgd">School Activities</string>
+    <string name="schol_teachers">School Teachers</string>
+    <string name="student_portal">Student Portal</string>
+    <string name="assign">Assignment Portal</string>
+    <string name="quiz_portal">Quiz Portal</string>
+    <string name="notes">Notes Portal</string>
+    <string name="feedback_stu">Feedback</string>
+    <string name="vedio">Vedios</string>
+    <string name="gsas">Government Scholarship and Schemes</string>
+    <string name="activities">Other Co-Curricular Activities</string>
+    <string name="edu_work">Educational Work-Load</string>
+    <string name="self_teach">Enter Self Teaching Record</string>
+    <string name="self_tch">Self Teaching Record</string>
+    <string name="subject">Enter Subjects</string>
+
+
     <string-array name="stream">
         <item>संकाय चुने </item>
         <item>गणित </item>
@@ -89,7 +176,6 @@
         <item>High-Tech Hospital </item>
     </string-array>
 
-    <string name="appname">Spinner Example</string>
     <string-array name="Class_Names">
         <item>कक्षा चुने </item>
         <item>V</item>

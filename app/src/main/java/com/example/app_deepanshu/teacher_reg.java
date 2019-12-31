@@ -9,20 +9,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class teacher_reg extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG="teacher_reg";
     ProgressBar simpleProgressBar;
     EditText email1,password,sch_name,teach_name,teacher_sub,teach_mobile,teach_area,teach_state;
-
+    int flag=0;
     private FirebaseAuth mAuth;
 
     @Override
@@ -43,13 +46,10 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
         teach_state=findViewById(R.id.teacher_state);
 
 
-
         mAuth = FirebaseAuth.getInstance();
-
         findViewById(R.id.button_submit).setOnClickListener(this);
 
     }
-
 
     private void teacher_signup(){
 
@@ -68,7 +68,6 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
             email1.requestFocus();
             return;
         }
-
         //for Password
         if (pass1.length() < 6) {
             password.setError("Minimum length of Password is 6");
@@ -121,45 +120,68 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+        //VERIFICATION OF TEACHER KEY FROM SCHOOL GENERATED KEY
+
+        Query keyQuery=FirebaseDatabase.getInstance().getReference()
+                .child("School_portal").orderByChild("School_Verify_Key").equalTo(sub1);
+        keyQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    teacher teach = new teacher(
-                            email1.getText().toString(),
-                            sch_name.getText().toString(),
-                            teach_name.getText().toString(),
-                            teacher_sub.getText().toString(),
-                            teach_mobile.getText().toString(),
-                            teach_area.getText().toString(),
-                            teach_state.getText().toString()
-                    );
-                    FirebaseDatabase.getInstance().getReference("Teacher_portal")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(teach).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                simpleProgressBar.setVisibility(View.VISIBLE);
-                                Toast.makeText(teacher_reg.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(teacher_reg.this,first_cat.class));
-                            } else {
-                                //display a failure message
-                                Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
-                } else {
-
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getChildrenCount()>0){
+                    flag=1;
                 }
+                else {
+                    teacher_sub.setError("Not a valid school key");
+                    teacher_sub.requestFocus();
+                    return;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
 
-    }
+        if(flag==1) {
 
+            mAuth.createUserWithEmailAndPassword(email, pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        teacher teach = new teacher(
+                                email1.getText().toString(),
+                                sch_name.getText().toString(),
+                                teach_name.getText().toString(),
+                                teacher_sub.getText().toString(),
+                                teach_mobile.getText().toString(),
+                                teach_area.getText().toString(),
+                                teach_state.getText().toString()
+                        );
+                        FirebaseDatabase.getInstance().getReference("Teacher_portal")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(teach).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    simpleProgressBar.setVisibility(View.VISIBLE);
+                                    Toast.makeText(teacher_reg.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(teacher_reg.this, first_cat.class));
+                                } else {
+                                    //display a failure message
+                                    Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                    } else {
+
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId())
@@ -171,3 +193,60 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//<LinearLayout
+//                android:layout_width="wrap_content"
+//                        android:layout_height="wrap_content"
+//                        android:orientation="vertical"
+//                        android:padding="10dp"
+//                        android:layout_gravity="center">
+//<RelativeLayout
+//                    android:layout_width="wrap_content"
+//                            android:layout_height="wrap_content"
+//                            android:layout_gravity="center_horizontal"
+//                            android:padding="0dp">
+//<com.google.android.material.textfield.TextInputLayout
+//        android:layout_width="wrap_content"
+//        android:layout_height="wrap_content"
+//        android:paddingRight="100dp"
+//        android:paddingBottom="10dp"
+//        android:gravity="center"
+//        app:passwordToggleEnabled="true"
+//        android:layout_marginTop="20dp">
+//<EditText
+//                            android:id="@+id/teacher_subject"
+//                                    android:layout_width="250dp"
+//                                    android:layout_height="55dp"
+//                                    android:paddingLeft="10dp"
+//                                    android:background="#ffffff"
+//                                    android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+//                                    android:layout_marginTop="20dp"
+//                                    android:hint="विद्यालय पंजीकरण नम्बर  "/>
+//</com.google.android.material.textfield.TextInputLayout>
+//<Button
+//                        android:layout_width="100dp"
+//                                android:layout_height="55dp"
+//                                android:text="VERIFY"
+//                                android:id="@+id/btn_verify"
+//                                android:background="#92B4C2"
+//                                android:layout_marginTop="30dp"
+//                                android:layout_marginLeft="255dp"
+//                                android:gravity="center"
+//                                android:textSize="18sp"
+//                                />
+//</RelativeLayout>
+//</LinearLayout>

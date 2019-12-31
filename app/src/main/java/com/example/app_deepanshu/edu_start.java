@@ -12,6 +12,7 @@ public class edu_start extends AppCompatActivity
     private Button teacherbutton;
     private Button studentbutton;
     private Button parentsbutton;
+    private Button schoolbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -43,6 +44,15 @@ public class edu_start extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(edu_start.this, parents_login.class);
+                startActivity(i);
+            }
+        });
+        schoolbutton = (Button) findViewById(R.id.school);
+        schoolbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(edu_start.this, School_login.class);
                 startActivity(i);
             }
         });

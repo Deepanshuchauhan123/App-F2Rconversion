@@ -27,12 +27,8 @@ public class student_login extends AppCompatActivity implements View.OnClickList
 
 
     EditText aadhar,password;
-
     private FirebaseAuth mAuth;
-
     ProgressBar simpleProgressBar;
-    private Button studentRegister;
-    private Button studentlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
