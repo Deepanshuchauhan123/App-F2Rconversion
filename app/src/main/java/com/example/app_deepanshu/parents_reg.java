@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.app_deepanshu.api.RetrofitClient;
+import com.example.app_deepanshu.models.DefaultResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,9 +19,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.FirebaseDatabase;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class parents_reg extends AppCompatActivity implements View.OnClickListener {
 
-    FirebaseAuth mAuth;
+   // FirebaseAuth mAuth;
 
     EditText email1,password,parent_name,prnt_mobile,prnt_area,prnt_state,adhaar;
 
@@ -30,7 +36,7 @@ public class parents_reg extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parents_reg);
 
-        mAuth = FirebaseAuth.getInstance();
+      //  mAuth = FirebaseAuth.getInstance();
 
 
         email1 = findViewById(R.id.parent_email);
@@ -112,50 +118,72 @@ public class parents_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-
-        mAuth.createUserWithEmailAndPassword(email,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        Call<DefaultResponse> call= RetrofitClient.getInstance()
+                .getApi()
+                .createParent(adhaar1,pass1,email,
+                        prnt_name1,
+                        mob1,area1,state1);
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(parents_reg.this,parents_login.class));
-                    parents Parents_Portal= new parents(
-                            email1.getText().toString(),
-                            adhaar.getText().toString(),
-                            parent_name.getText().toString(),
-                            prnt_mobile.getText().toString(),
-                            prnt_area.getText().toString(),
-                            prnt_state.getText().toString()
-
-                    );
-                    FirebaseDatabase.getInstance().getReference("Parents_Portal")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(Parents_Portal).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(parents_reg.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(parents_reg.this,parents_login.class));
-                            } else {
-                                //display a failure message
-                                Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
-
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                if(response.code()==201){
+                    DefaultResponse dr=response.body();
+                    Toast.makeText(parents_reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(parents_reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
                 }
-                else {
-                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                        Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
-                }
+            }
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
 
             }
         });
+
+
+
+//        mAuth.createUserWithEmailAndPassword(email,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(parents_reg.this,parents_login.class));
+//                    parents Parents_Portal= new parents(
+//                            email1.getText().toString(),
+//                            adhaar.getText().toString(),
+//                            parent_name.getText().toString(),
+//                            prnt_mobile.getText().toString(),
+//                            prnt_area.getText().toString(),
+//                            prnt_state.getText().toString()
+//
+//                    );
+//                    FirebaseDatabase.getInstance().getReference("Parents_Portal")
+//                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                            .setValue(Parents_Portal).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if (task.isSuccessful()) {
+//                                Toast.makeText(parents_reg.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(parents_reg.this,parents_login.class));
+//                            } else {
+//                                //display a failure message
+//                                Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//
+//
+//                }
+//                else {
+//                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+//                        Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }
+//
+//            }
+//        });
 
     }
 

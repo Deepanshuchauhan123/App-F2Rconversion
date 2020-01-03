@@ -1,33 +1,18 @@
 package com.example.app_deepanshu;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.example.app_deepanshu.api.RetrofitClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class student_login extends AppCompatActivity implements View.OnClickListener{
 
@@ -82,29 +67,19 @@ public class student_login extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        Call<StudentLoginResponse> call= RetrofitClient
+        Call<stu_login> call= RetrofitClient
                 .getInstance().getApi().userLogin(adhar1,pass1);
-
-
-        call.enqueue(new Callback<StudentLoginResponse>() {
+        call.enqueue(new Callback<stu_login>() {
             @Override
-            public void onResponse(Call<StudentLoginResponse> call, Response<StudentLoginResponse> response) {
-            StudentLoginResponse studentLoginResponse=response.body();
+            public void onResponse(Call<stu_login> call, Response<stu_login> response) {
 
-            if(!studentLoginResponse.isError()){
-
-                Toast.makeText(student_login.this,studentLoginResponse.getMessage(),Toast.LENGTH_LONG).show();
-                token=studentLoginResponse.getToken();
-            }else {
-                Toast.makeText(student_login.this,studentLoginResponse.getMessage(),Toast.LENGTH_LONG).show();
-            }
+                Toast.makeText(student_login.this,response.body().getKey(),Toast.LENGTH_LONG).show();
             }
             @Override
-            public void onFailure(Call<StudentLoginResponse> call, Throwable t) {
-
+            public void onFailure(Call<stu_login> call, Throwable t) {
+            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-
 
 
 //        mAuth.signInWithEmailAndPassword(adhar1,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

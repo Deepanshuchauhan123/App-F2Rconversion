@@ -2,6 +2,7 @@ package com.example.app_deepanshu.api;
 
 import com.example.app_deepanshu.StudentLoginResponse;
 import com.example.app_deepanshu.models.DefaultResponse;
+import com.example.app_deepanshu.stu_login;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,13 +28,21 @@ public interface Api {
             @Field("state") String state
     );
     @FormUrlEncoded
+    @POST("/account/parent/create")
+    Call<DefaultResponse> createParent(
+            @Field("aadhar") String aadhar,
+            @Field("password") String password,
+            @Field("email") String email,
+            @Field("first_name") String first_name,
+            @Field("mobile_number") String mobile_number,
+            @Field("address") String address,
+            @Field("state") String state
+    );
+    @FormUrlEncoded
     @POST("/account/rest-auth/login/")
-    Call<StudentLoginResponse> userLogin(
+    Call<stu_login> userLogin(
             @Field("username") String username,
             @Field("password") String password
     );
-    @GET("/account/rest-auth/login/")
-    Call<StudentLoginResponse> getUser(@Header("Authorization") String authToken);
-
 
 }

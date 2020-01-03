@@ -1,8 +1,5 @@
 package com.example.app_deepanshu.api;
 
-import android.text.TextUtils;
-
-import okhttp3.Credentials;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -17,7 +14,6 @@ public class RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
-
     public static synchronized RetrofitClient getInstance(){
         if(mInstance==null)
         {
