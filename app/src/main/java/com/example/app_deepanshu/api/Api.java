@@ -28,6 +28,12 @@ public interface Api {
             @Field("state") String state
     );
     @FormUrlEncoded
+    @POST("/account/rest-auth/login/")
+    Call<stu_login> userLogin(
+            @Field("username") String username,
+            @Field("password") String password
+    );
+    @FormUrlEncoded
     @POST("/account/parent/create")
     Call<DefaultResponse> createParent(
             @Field("aadhar") String aadhar,
@@ -40,9 +46,8 @@ public interface Api {
     );
     @FormUrlEncoded
     @POST("/account/rest-auth/login/")
-    Call<stu_login> userLogin(
+    Call<stu_login> parentLogin(
             @Field("username") String username,
             @Field("password") String password
     );
-
 }

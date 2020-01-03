@@ -125,6 +125,8 @@
     <string name="self_teach">स्वः शिक्षण विवरण डाले</string>
     <string name="self_tch">स्वः शिक्षण विवरण देखे</string>
     <string name="subject">अपनी विषय डाले</string>
+    <string name="verify">Verify</string>
+    <string name="board">विद्यालय का बोर्ड</string>
 
 </resources>
 

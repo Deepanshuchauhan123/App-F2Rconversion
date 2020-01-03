@@ -113,6 +113,8 @@
     <string name="self_teach">Enter Self Teaching Record</string>
     <string name="self_tch">Self Teaching Record</string>
     <string name="subject">Enter Subjects</string>
+    <string name="verify">Verify</string>
+    <string name="board">Board of school</string>
 
 
     <string-array name="stream">

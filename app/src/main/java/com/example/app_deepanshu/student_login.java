@@ -16,7 +16,6 @@ import retrofit2.Response;
 
 public class student_login extends AppCompatActivity implements View.OnClickListener{
 
-
     EditText aadhar,password;
 //    private FirebaseAuth mAuth;
     ProgressBar simpleProgressBar;
@@ -48,21 +47,9 @@ public class student_login extends AppCompatActivity implements View.OnClickList
             aadhar.requestFocus();
             return;
         }
-
-        if (!Patterns.EMAIL_ADDRESS .matcher(adhar1).matches()) {
-            aadhar.setError("Enter Valid Name");
-            aadhar.requestFocus();
-            return;
-        }
-
         //for Password
         if (pass1.isEmpty()) {
             password.setError("Password Required");
-            password.requestFocus();
-            return;
-        }
-        if (pass1.length() < 6) {
-            password.setError("Minimum length of Password is 6");
             password.requestFocus();
             return;
         }
@@ -73,8 +60,18 @@ public class student_login extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<stu_login> call, Response<stu_login> response) {
 
-                Toast.makeText(student_login.this,response.body().getKey(),Toast.LENGTH_LONG).show();
-            }
+                if (response.isSuccessful()) {
+                    Toast.makeText(student_login.this,"Login Sucessful",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(student_login.this, student_grid.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    simpleProgressBar.setVisibility(View.VISIBLE);
+                    startActivity(intent);
+
+                } else {
+
+                    Toast.makeText(student_login.this,"Invalid User Credential",Toast.LENGTH_LONG).show();
+                }
+             }
             @Override
             public void onFailure(Call<stu_login> call, Throwable t) {
             Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
