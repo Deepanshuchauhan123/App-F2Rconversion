@@ -72,7 +72,6 @@ public class RecyclerView_Config {
             this.msubjectList = msubjectList;
             this.mkeys = mkeys;
         }
-
         @NonNull
         @Override
         public SubjectItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

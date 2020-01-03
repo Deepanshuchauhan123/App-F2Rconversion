@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.app_deepanshu.api.RetrofitClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,11 +24,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class student_login extends AppCompatActivity implements View.OnClickListener{
 
 
     EditText aadhar,password;
-    private FirebaseAuth mAuth;
+//    private FirebaseAuth mAuth;
     ProgressBar simpleProgressBar;
 
     @Override
@@ -39,13 +45,13 @@ public class student_login extends AppCompatActivity implements View.OnClickList
         aadhar = findViewById(R.id.edittext_adhaar);
         password = findViewById(R.id.edittext_password);
 
-        mAuth = FirebaseAuth.getInstance();
+      //  mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.button_register).setOnClickListener(this);
 
         findViewById(R.id.button_login).setOnClickListener(this);
     }
-
+    private static String token;
     private void student_login()
     {
         String adhar1 = aadhar.getText().toString().trim();
@@ -76,20 +82,45 @@ public class student_login extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(adhar1,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        Call<StudentLoginResponse> call= RetrofitClient
+                .getInstance().getApi().userLogin(adhar1,pass1);
+
+
+        call.enqueue(new Callback<StudentLoginResponse>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Intent intent = new Intent(student_login.this, student_grid.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    simpleProgressBar.setVisibility(View.VISIBLE);
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                }
+            public void onResponse(Call<StudentLoginResponse> call, Response<StudentLoginResponse> response) {
+            StudentLoginResponse studentLoginResponse=response.body();
+
+            if(!studentLoginResponse.isError()){
+
+                Toast.makeText(student_login.this,studentLoginResponse.getMessage(),Toast.LENGTH_LONG).show();
+                token=studentLoginResponse.getToken();
+            }else {
+                Toast.makeText(student_login.this,studentLoginResponse.getMessage(),Toast.LENGTH_LONG).show();
+            }
+            }
+            @Override
+            public void onFailure(Call<StudentLoginResponse> call, Throwable t) {
+
             }
         });
+
+
+
+//        mAuth.signInWithEmailAndPassword(adhar1,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful()){
+//                    Intent intent = new Intent(student_login.this, student_grid.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    simpleProgressBar.setVisibility(View.VISIBLE);
+//                    startActivity(intent);
+//                }
+//                else{
+//                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
     @Override
     public void onClick(View view) {

@@ -28,10 +28,6 @@ public class FirebaseDatabaseHelper extends Add_Student{
     public FirebaseDatabaseHelper() {
         sub_Class =Add_Student.citem;
 
-
-
-
-
         mRef = FirebaseDatabase.getInstance()
                 .getReference("Teacher_portal").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         mRef.child("School_Verify_Key").addValueEventListener(new ValueEventListener() {
@@ -45,22 +41,8 @@ public class FirebaseDatabaseHelper extends Add_Student{
 
             }
         });
-
-
-
-
-
-
-
-
         sDatabase =FirebaseDatabase.getInstance();
         mReferenceStudent = sDatabase.getReference("School_Students").child(value);
-
-
-
-
-
-
 
 
         mDatabase =FirebaseDatabase.getInstance();

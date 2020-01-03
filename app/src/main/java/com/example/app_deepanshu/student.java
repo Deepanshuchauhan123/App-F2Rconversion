@@ -19,4 +19,35 @@ public class student {
         this.student_state=student_state;
     }
 
+    public String getE_mail() {
+        return E_mail;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getGuardian_Name() {
+        return Guardian_Name;
+    }
+
+    public String getStudent_adhaar() {
+        return student_adhaar;
+    }
+
+    public String getFather_adhaar() {
+        return father_adhaar;
+    }
+
+    public String getFather_mobile() {
+        return Father_mobile;
+    }
+
+    public String getStudent_add() {
+        return student_add;
+    }
+
+    public String getStudent_state() {
+        return student_state;
+    }
 }

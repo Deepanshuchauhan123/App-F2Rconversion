@@ -1,31 +1,25 @@
 package com.example.app_deepanshu;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.app_deepanshu.api.RetrofitClient;
+import com.example.app_deepanshu.models.DefaultResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class student_reg extends AppCompatActivity implements View.OnClickListener{
 
-    Spinner spinner;
     EditText student_email,student_name,student_parents,student_adhaar,father_adhaar,student_password,student_mobile,student_add,student_state;
-    private FirebaseAuth mAuth;
+   // private FirebaseAuth mAuth;
     ProgressBar simpleProgressBar;
 
 
@@ -46,8 +40,8 @@ public class student_reg extends AppCompatActivity implements View.OnClickListen
         student_add=findViewById(R.id.student_add);
         student_state=findViewById(R.id.student_state);
 
-        mAuth = FirebaseAuth.getInstance();
-        findViewById(R.id.button_submit).setOnClickListener((View.OnClickListener)this);
+//        mAuth = FirebaseAuth.getInstance();
+          findViewById(R.id.button_submit).setOnClickListener((View.OnClickListener)this);
 
     }
 
@@ -127,47 +121,70 @@ public class student_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(emails,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        Call<DefaultResponse> call= RetrofitClient.getInstance()
+                .getApi()
+                .createUser(stu_adhaar,pass,emails,
+                        name,parent_name,fat_adhaar,
+                        mobile,add,state);
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    student student = new student(
-                            student_email.getText().toString(),
-                            student_name.getText().toString(),
-                            student_parents.getText().toString(),
-                            student_adhaar.getText().toString(),
-                            father_adhaar.getText().toString(),
-                            student_mobile.getText().toString(),
-                            student_add.getText().toString(),
-                            student_state.getText().toString()
-
-                    );
-                    FirebaseDatabase.getInstance().getReference("Student_Portal")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                simpleProgressBar.setVisibility(View.VISIBLE);
-                                Toast.makeText(student_reg.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(student_reg.this,student_login.class));
-                            } else {
-                                //display a failure message
-                                Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
-
-                } else {
-
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                if(response.code()==201){
+                    DefaultResponse dr=response.body();
+                    Toast.makeText(student_reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(student_reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
 
             }
         });
 
     }
+//        mAuth.createUserWithEmailAndPassword(emails,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()) {
+//                    student student = new student(
+//                            student_email.getText().toString(),
+//                            student_name.getText().toString(),
+//                            student_parents.getText().toString(),
+//                            student_adhaar.getText().toString(),
+//                            father_adhaar.getText().toString(),
+//                            student_mobile.getText().toString(),
+//                            student_add.getText().toString(),
+//                            student_state.getText().toString()
+//
+//                    );
+//                    FirebaseDatabase.getInstance().getReference("Student_Portal")
+//                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                            .setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if (task.isSuccessful()) {
+//                                simpleProgressBar.setVisibility(View.VISIBLE);
+//                                Toast.makeText(student_reg.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(student_reg.this,student_login.class));
+//                            } else {
+//                                //display a failure message
+//                                Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//
+//
+//                } else {
+//
+//                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//        });
+
+
 @Override
     public void onClick(View view) {
         switch (view.getId())
