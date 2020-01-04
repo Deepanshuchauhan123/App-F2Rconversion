@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -24,9 +25,10 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
     private static final String TAG="teacher_reg";
     ProgressBar simpleProgressBar;
-    EditText email1,password,sch_name,teach_name,teacher_sub,teach_mobile,teach_area,teach_state;
+    EditText email1,password,sch_name,teach_name,school_Key,teach_mobile,teach_area,teach_state;
     int flag=0;
-    private FirebaseAuth mAuth;
+    private Button btn;
+    //private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,23 +42,32 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
         password=findViewById(R.id.teacher_password);
         sch_name=findViewById(R.id.school_name);
         teach_name=findViewById(R.id.teacher_name);
-        teacher_sub=findViewById(R.id.teacher_subject);
+        school_Key=findViewById(R.id.school_key);
         teach_mobile=findViewById(R.id.teacher_mobile);
         teach_area=findViewById(R.id.teacher_village);
         teach_state=findViewById(R.id.teacher_state);
+        findViewById(R.id.after_verify).setVisibility(View.GONE);
+        findViewById(R.id.hai_jo_hai).setVisibility(View.VISIBLE);
 
-
-        mAuth = FirebaseAuth.getInstance();
+      //  mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.button_submit).setOnClickListener(this);
+        btn.findViewById(R.id.verify_btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //code for btn Verify key
+            }
+        });
 
     }
 
-    private void teacher_signup(){
+            private void teacher_signup(){
 
         String email= email1.getText().toString().trim();
         String pass1 = password.getText().toString().trim();
         String sch_name1 = sch_name.getText().toString().trim();
-        String sub1 = teacher_sub.getText().toString().trim();
+        String schl_key = school_Key.getText().toString().trim();
         String name1= teach_name.getText().toString().trim();
         String mob1 = teach_mobile.getText().toString().trim();
         String area1= teach_area.getText().toString().trim();
@@ -95,9 +106,9 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        if (sub1.isEmpty()) {
-            teacher_sub.setError("school  id is required");
-            teacher_sub.requestFocus();
+        if (schl_key.isEmpty()) {
+            school_Key.setError("school  id is required");
+            school_Key.requestFocus();
             return;
         }
         //for name
@@ -121,66 +132,67 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
         }
 
 
+
         //VERIFICATION OF TEACHER KEY FROM SCHOOL GENERATED KEY
 
-        Query keyQuery=FirebaseDatabase.getInstance().getReference()
-                .child("School_portal").orderByChild("School_Verify_Key").equalTo(sub1);
-        keyQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildrenCount()>0){
-                    flag=1;
-                }
-                else {
-                    teacher_sub.setError("Not a valid school key");
-                    teacher_sub.requestFocus();
-                    return;
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        if(flag==1) {
-
-            mAuth.createUserWithEmailAndPassword(email, pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        teacher teach = new teacher(
-                                email1.getText().toString(),
-                                sch_name.getText().toString(),
-                                teach_name.getText().toString(),
-                                teacher_sub.getText().toString(),
-                                teach_mobile.getText().toString(),
-                                teach_area.getText().toString(),
-                                teach_state.getText().toString()
-                        );
-                        FirebaseDatabase.getInstance().getReference("Teacher_portal")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(teach).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    simpleProgressBar.setVisibility(View.VISIBLE);
-                                    Toast.makeText(teacher_reg.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(teacher_reg.this, first_cat.class));
-                                } else {
-                                    //display a failure message
-                                    Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-
-                    } else {
-
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
+//        Query keyQuery=FirebaseDatabase.getInstance().getReference()
+//                .child("School_portal").orderByChild("School_Verify_Key").equalTo(sub1);
+//        keyQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.getChildrenCount()>0){
+//                    flag=1;
+//                }
+//                else {
+//                    teacher_sub.setError("Not a valid school key");
+//                    teacher_sub.requestFocus();
+//                    return;
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        if(flag==1) {
+//
+//            mAuth.createUserWithEmailAndPassword(email, pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if (task.isSuccessful()) {
+//                        teacher teach = new teacher(
+//                                email1.getText().toString(),
+//                                sch_name.getText().toString(),
+//                                teach_name.getText().toString(),
+//                                teacher_sub.getText().toString(),
+//                                teach_mobile.getText().toString(),
+//                                teach_area.getText().toString(),
+//                                teach_state.getText().toString()
+//                        );
+//                        FirebaseDatabase.getInstance().getReference("Teacher_portal")
+//                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                .setValue(teach).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                if (task.isSuccessful()) {
+//                                    simpleProgressBar.setVisibility(View.VISIBLE);
+//                                    Toast.makeText(teacher_reg.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+//                                    startActivity(new Intent(teacher_reg.this, first_cat.class));
+//                                } else {
+//                                    //display a failure message
+//                                    Toast.makeText(getApplicationContext(), "Already have an Account", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//
+//                    } else {
+//
+//                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
+//        }
     }
     @Override
     public void onClick(View view) {
@@ -207,7 +219,7 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
 
 
-//
+
 //<LinearLayout
 //                android:layout_width="wrap_content"
 //                        android:layout_height="wrap_content"

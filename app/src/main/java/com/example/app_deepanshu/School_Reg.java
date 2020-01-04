@@ -11,22 +11,26 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.app_deepanshu.api.RetrofitClient;
+import com.example.app_deepanshu.models.DefaultResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class School_Reg extends AppCompatActivity implements View.OnClickListener {
 
     ProgressBar simpleProgressBar;
-    EditText email1,password,sch_name,board_name,school_key,schl_mobile,scl_location,school_state,cnf_pass;
+    public String key;
+    EditText email1,password,school_teach_key,sch_name,board_name,school_key,schl_mobile,scl_location,school_state,cnf_pass;
    // private FirebaseAuth mAuth;
-    private String school_Verify_Key="18EMCCS031";
-    private Button btn;
-
-
-
+    public String school_Verify_Key="hello";
+    private Button btn,btn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,50 +44,38 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
         sch_name=findViewById(R.id.school_name);
         board_name=findViewById(R.id.school_board);
         school_key=findViewById(R.id.school_key);
+        school_teach_key=findViewById(R.id.Generate_key);
         schl_mobile=findViewById(R.id.school_mobile);
         scl_location=findViewById(R.id.school_location);
         school_state=findViewById(R.id.school_state);
 
-        btn=findViewById(R.id.button_submit);
-        //findViewById(R.id.after_vrify).setVisibility(View.INVISIBLE);
+        btn=(Button)findViewById(R.id.verify_btn);
+        btn1=(Button)findViewById(R.id.button_submit);
+        findViewById(R.id.after_verify).setVisibility(View.GONE);
+        findViewById(R.id.hai_jo_hai).setVisibility(View.VISIBLE);
 
-//            email1.setVisibility(View.INVISIBLE);
-//            password.setVisibility(View.INVISIBLE);
-//            sch_name.setVisibility(View.INVISIBLE);
-//            schl_mobile.setVisibility(View.INVISIBLE);
-//            scl_location.setVisibility(View.INVISIBLE);
-//            school_state.setVisibility(View.INVISIBLE);
-//            cnf_pass.setVisibility(View.INVISIBLE);
-//            btn.setVisibility(View.INVISIBLE);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                key = school_key.getText().toString().trim();
+                if(key.equalsIgnoreCase(school_Verify_Key))
+                {
+                    findViewById(R.id.after_verify).setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(),"Key Matched Sucessfully ",Toast.LENGTH_LONG).show();
+                    findViewById(R.id.hai_jo_hai).setVisibility(View.GONE);
+                } else {
+                    findViewById(R.id.after_verify).setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(),"Enter a valid Key",Toast.LENGTH_LONG).show();
+                }
+                if (key.isEmpty()) {
+                    school_key.setError("school  id is required");
+                    school_key.requestFocus();
+                    return;
+                }
 
-       // mAuth = FirebaseAuth.getInstance();
-
+            }
+        });
         findViewById(R.id.button_submit).setOnClickListener(this);
-
-        findViewById(R.id.verify_btn).setOnClickListener(this);
-
-    }
-    private void school_Verify() {
-        school_key=findViewById(R.id.school_key);
-        String key = school_key.getText().toString().trim();
-        if (key.isEmpty()) {
-            school_key.setError("school  id is required");
-            school_key.requestFocus();
-            return;
-        }
-        if(key==school_Verify_Key)
-        {
-            findViewById(R.id.after_vrify).setVisibility(View.INVISIBLE);
-//            email1.setVisibility(View.VISIBLE);
-//            password.setVisibility(View.VISIBLE);
-//            sch_name.setVisibility(View.VISIBLE);
-//            schl_mobile.setVisibility(View.VISIBLE);
-//            scl_location.setVisibility(View.VISIBLE);
-//            school_state.setVisibility(View.VISIBLE);
-//            cnf_pass.setVisibility(View.VISIBLE);
-//            btn.setVisibility(View.VISIBLE);
-        }
-
     }
 
     public void School_signup(){
@@ -92,6 +84,7 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
         String pass1 = password.getText().toString().trim();
         String sch_name1 = sch_name.getText().toString().trim();
         String key = school_key.getText().toString().trim();
+        String key_teach=school_teach_key.getText().toString().trim();
         String board= board_name.getText().toString().trim();
         String mob1 = schl_mobile.getText().toString().trim();
         String area1= scl_location.getText().toString().trim();
@@ -131,9 +124,9 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
             return;
         }
 
-        if (key.isEmpty()) {
-            school_key.setError("school  id is required");
-            school_key.requestFocus();
+        if (key_teach.isEmpty()) {
+            school_teach_key.setError("school  id is required");
+            school_teach_key.requestFocus();
             return;
         }
         //for name
@@ -155,6 +148,31 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
             school_state.requestFocus();
             return;
         }
+
+        Call<DefaultResponse> call= RetrofitClient.getInstance()
+                .getApi()
+                .createSchool(key_teach,pass1,email,
+                        sch_name1,mob1,area1,
+                        state1,board);
+        call.enqueue(new Callback<DefaultResponse>() {
+            @Override
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                if(response.code()==201){
+                    DefaultResponse dr=response.body();
+                    Toast.makeText(School_Reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(School_Reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+
+            }
+        });
+
+
+
 
 //        mAuth.createUserWithEmailAndPassword(email,pass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 //            @Override
@@ -202,9 +220,7 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
             case R.id.button_submit:
                 School_signup();
                 break;
-            case R.id.verify_btn:
-                school_Verify();
-                break;
+
         }
     }
 }

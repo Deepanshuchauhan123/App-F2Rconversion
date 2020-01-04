@@ -12,15 +12,20 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.app_deepanshu.api.RetrofitClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class School_login extends AppCompatActivity implements View.OnClickListener {
 
     EditText aadhar, password;
-    private FirebaseAuth mAuth;
+    //private FirebaseAuth mAuth;
     ProgressBar simpleProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +36,18 @@ public class School_login extends AppCompatActivity implements View.OnClickListe
 
         aadhar = findViewById(R.id.edittext_adhaar);
         password = findViewById(R.id.edittext_password);
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.button_register).setOnClickListener(this);
         findViewById(R.id.button_login).setOnClickListener(this);
         findViewById(R.id.edittext_password).setOnClickListener(this);
     }
 
     private void school_login() {
-        String adhar1 = aadhar.getText().toString().trim();
+        String username = aadhar.getText().toString().trim();
         String pass1 = password.getText().toString().trim();
 
-        if (adhar1.isEmpty()) {
+        if (username.isEmpty()) {
             aadhar.setError("ईमेल अनिवार्य है!");
-            aadhar.requestFocus();
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(adhar1).matches()) {
-            aadhar.setError("उपयुक्त ईमेल डाले ");
             aadhar.requestFocus();
             return;
         }
@@ -65,22 +64,47 @@ public class School_login extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(adhar1, pass1).addOnCompleteListener(School_login.this, new OnCompleteListener<AuthResult>() {
+        Call<stu_login> call= RetrofitClient
+                .getInstance().getApi().schoolLogin(username,pass1);
+        call.enqueue(new Callback<stu_login>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful())
-                {
-                    simpleProgressBar.setVisibility(View.VISIBLE);
+            public void onResponse(Call<stu_login> call, Response<stu_login> response) {
+
+                if (response.isSuccessful()) {
+                    Toast.makeText(School_login.this,"Login Sucessful",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(School_login.this, school_main_grid.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                    finish();
+                    simpleProgressBar.setVisibility(View.VISIBLE);
 
                 } else {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(School_login.this,"Invalid User Credential",Toast.LENGTH_LONG).show();
                 }
             }
+            @Override
+            public void onFailure(Call<stu_login> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
         });
+
+
+//        mAuth.signInWithEmailAndPassword(adhar1, pass1).addOnCompleteListener(School_login.this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful())
+//                {
+//                    simpleProgressBar.setVisibility(View.VISIBLE);
+//                    Intent intent = new Intent(School_login.this, school_main_grid.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
+//                    finish();
+//
+//                } else {
+//                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
     @Override
     public void onClick(View view)

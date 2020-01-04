@@ -9,7 +9,6 @@ public class DefaultResponse {
         this.error = error;
         this.message = message;
     }
-
     public boolean isError() {
         return error;
     }
