@@ -48,7 +48,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
                         android:layout_marginTop="20dp"
-                        android:hint="विद्यालय पंजीकरण नम्बर  "/>
+                        android:hint="@string/verify_key"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <Button
                     android:layout_width="100dp"

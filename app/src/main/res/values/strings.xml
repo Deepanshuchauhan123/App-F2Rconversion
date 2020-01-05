@@ -116,6 +116,7 @@
     <string name="verify">Verify</string>
     <string name="board">Board of school</string>
     <string name="Generate_key">Generate Teacher Verify Key</string>
+    <string name="verify_key">Enter Verify Key</string>
 
 
     <string-array name="stream">

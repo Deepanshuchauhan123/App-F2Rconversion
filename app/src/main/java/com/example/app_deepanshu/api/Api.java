@@ -1,5 +1,6 @@
 package com.example.app_deepanshu.api;
 
+import com.example.app_deepanshu.Key_Verify;
 import com.example.app_deepanshu.StudentLoginResponse;
 import com.example.app_deepanshu.models.DefaultResponse;
 import com.example.app_deepanshu.stu_login;
@@ -11,6 +12,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface Api {
 
@@ -77,6 +79,30 @@ public interface Api {
     @FormUrlEncoded
     @POST("/account/rest-auth/login/")
     Call<stu_login> schoolLogin(
+            @Field("username") String username,
+            @Field("password") String password
+    );
+    //Teacher Verify
+    @GET("/account/{key}/school")
+    Call<Key_Verify> verifyTeacher(
+            @Path("key") String key
+    );
+
+    @FormUrlEncoded
+    @POST("/account/teacher/create")
+    Call<DefaultResponse> createTeacher(
+            @Field("aadhar") String aadhar,
+            @Field("password") String password,
+            @Field("email") String email,
+            @Field("first_name") String first_name,
+            @Field("mobile_number") String mobile_number,
+            @Field("address") String address,
+            @Field("state") String state,
+            @Field("school_id") Integer school_id
+    );
+    @FormUrlEncoded
+    @POST("/account/rest-auth/login/")
+    Call<stu_login> teacherLogin(
             @Field("username") String username,
             @Field("password") String password
     );

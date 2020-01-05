@@ -10,15 +10,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.app_deepanshu.api.RetrofitClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class first_cat extends AppCompatActivity implements View.OnClickListener {
 
     EditText aadhar, password;
-    private FirebaseAuth mAuth;
+   // private FirebaseAuth mAuth;
     ProgressBar simpleProgressBar;
 
     @Override
@@ -31,7 +37,7 @@ public class first_cat extends AppCompatActivity implements View.OnClickListener
 
         aadhar = findViewById(R.id.edittext_adhaar);
         password = findViewById(R.id.edittext_password);
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.button_register1).setOnClickListener(this);
 
@@ -41,17 +47,11 @@ public class first_cat extends AppCompatActivity implements View.OnClickListener
     }
 
     private void teacher_login() {
-        String adhar1 = aadhar.getText().toString().trim();
+        String username = aadhar.getText().toString().trim();
         String pass1 = password.getText().toString().trim();
 
-        if (adhar1.isEmpty()) {
+        if (username.isEmpty()) {
             aadhar.setError("ईमेल अनिवार्य है!");
-            aadhar.requestFocus();
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(adhar1).matches()) {
-            aadhar.setError("उपयुक्त ईमेल डाले ");
             aadhar.requestFocus();
             return;
         }
@@ -68,24 +68,46 @@ public class first_cat extends AppCompatActivity implements View.OnClickListener
             return;
         }
 
-
-
-        mAuth.signInWithEmailAndPassword(adhar1, pass1).addOnCompleteListener(first_cat.this, new OnCompleteListener<AuthResult>() {
+        Call<stu_login> call= RetrofitClient
+                .getInstance().getApi().teacherLogin(username,pass1);
+        call.enqueue(new Callback<stu_login>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful())
-                {
+            public void onResponse(Call<stu_login> call, Response<stu_login> response) {
+
+                if (response.isSuccessful()) {
                     simpleProgressBar.setVisibility(View.VISIBLE);
                     Intent intent = new Intent(first_cat.this, teacher_grid.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                    finish();
+                    simpleProgressBar.setVisibility(View.VISIBLE);
 
                 } else {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(first_cat.this,"Invalid User Credential",Toast.LENGTH_LONG).show();
                 }
             }
+            @Override
+            public void onFailure(Call<stu_login> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
         });
+
+//        mAuth.signInWithEmailAndPassword(adhar1, pass1).addOnCompleteListener(first_cat.this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful())
+//                {
+//                    simpleProgressBar.setVisibility(View.VISIBLE);
+//                    Intent intent = new Intent(first_cat.this, teacher_grid.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
+//                    finish();
+//
+//                } else {
+//                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 
 

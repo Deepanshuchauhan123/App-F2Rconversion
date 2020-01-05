@@ -47,13 +47,13 @@
                             android:background="#ffffff"
                             android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
                             android:layout_marginTop="20dp"
-                            android:hint="विद्यालय पंजीकरण नम्बर  "/>
+                            android:hint="@string/verify_key"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <Button
                         android:layout_width="100dp"
                         android:layout_height="55dp"
                         android:text="VERIFY"
-                        android:id="@+id/verify_btn"
+                        android:id="@+id/btn_verify"
                         android:background="#92B4C2"
                         android:layout_marginTop="30dp"
                         android:layout_marginLeft="255dp"
@@ -67,6 +67,40 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/after_verify">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    app:passwordToggleEnabled="true"
+                    android:layout_marginTop="20dp">
+                    <EditText
+                        android:id="@+id/school_name"
+                        android:layout_width="350dp"
+                        android:layout_height="55dp"
+                        android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                        android:background="#ffffff"
+                        android:layout_marginTop="40dp"
+                        android:paddingLeft="10dp"
+                        android:hint="@string/schl_name"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    app:passwordToggleEnabled="true"
+                    android:layout_marginTop="20dp">
+                    <EditText
+                        android:id="@+id/teacher_adhaar"
+                        android:layout_width="350dp"
+                        android:layout_height="55dp"
+                        android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                        android:background="#ffffff"
+                        android:layout_marginTop="40dp"
+                        android:paddingLeft="10dp"
+                        android:hint="@string/Adhaar_no"/>
+                </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,23 +120,6 @@
                 android:hint="@string/e_mail"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:gravity="center"
-                app:passwordToggleEnabled="true"
-                android:layout_marginTop="20dp">
-            <EditText
-                android:id="@+id/school_name"
-                android:layout_width="350dp"
-                android:layout_height="55dp"
-                android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
-                android:background="#ffffff"
-                android:layout_marginTop="40dp"
-                android:paddingLeft="10dp"
-                android:hint="@string/schl_name"/>
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"

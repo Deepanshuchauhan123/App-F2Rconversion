@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.app_deepanshu.api.RetrofitClient;
+import com.example.app_deepanshu.models.DefaultResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,14 +23,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class teacher_reg extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG="teacher_reg";
     ProgressBar simpleProgressBar;
-    EditText email1,password,sch_name,teach_name,school_Key,teach_mobile,teach_area,teach_state;
-    int flag=0;
-    private Button btn;
+    EditText email1,password,sch_name,teacher_adhaar,teach_name,school_Key,teach_mobile,teach_area,teach_state;
+    Integer sch_id;
     //private FirebaseAuth mAuth;
 
     @Override
@@ -40,9 +45,10 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
         email1 = findViewById(R.id.teacher_email);
         password=findViewById(R.id.teacher_password);
-        sch_name=findViewById(R.id.school_name);
+        teacher_adhaar=findViewById(R.id.teacher_adhaar);
         teach_name=findViewById(R.id.teacher_name);
         school_Key=findViewById(R.id.school_key);
+        sch_name=findViewById(R.id.school_name);
         teach_mobile=findViewById(R.id.teacher_mobile);
         teach_area=findViewById(R.id.teacher_village);
         teach_state=findViewById(R.id.teacher_state);
@@ -51,12 +57,41 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
       //  mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.button_submit).setOnClickListener(this);
-        btn.findViewById(R.id.verify_btn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_verify).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String key_teach=school_Key.getText().toString().trim();
                 //code for btn Verify key
+                if (key_teach.isEmpty()) {
+                    school_Key.setError("school  id is required");
+                    school_Key.requestFocus();
+                    return;
+                }
+                Call<Key_Verify> call= RetrofitClient.getInstance().getApi().verifyTeacher(key_teach);
+                call.enqueue(new Callback<Key_Verify>() {
+                    @Override
+                    public void onResponse(Call<Key_Verify> call, Response<Key_Verify> response) {
+                        if(response.code()==200){
+                            Toast.makeText(teacher_reg.this,"Verified Sucessfully",Toast.LENGTH_LONG).show();
+                            sch_id=response.body().getSchool_id();
+                            sch_name.setText(response.body().getFirst_name());
+                            findViewById(R.id.after_verify).setVisibility(View.VISIBLE);
+                            findViewById(R.id.hai_jo_hai).setVisibility(View.GONE);
+
+
+                        }else{
+                            Toast.makeText(teacher_reg.this,"Not a Valid Key ",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Key_Verify> call, Throwable t) {
+
+                        Toast.makeText(teacher_reg.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
@@ -66,7 +101,7 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
         String email= email1.getText().toString().trim();
         String pass1 = password.getText().toString().trim();
-        String sch_name1 = sch_name.getText().toString().trim();
+        String sch_name1 = teacher_adhaar.getText().toString().trim();
         String schl_key = school_Key.getText().toString().trim();
         String name1= teach_name.getText().toString().trim();
         String mob1 = teach_mobile.getText().toString().trim();
@@ -131,7 +166,28 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
+                Call<DefaultResponse> call= RetrofitClient.getInstance()
+                        .getApi()
+                        .createTeacher(sch_name1,pass1,email,
+                                name1,mob1,area1,
+                                state1,sch_id);
+                call.enqueue(new Callback<DefaultResponse>() {
+                    @Override
+                    public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                        if(response.code()==201){
+                            DefaultResponse dr=response.body();
+                            Toast.makeText(teacher_reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(teacher_reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
+                        }
+                    }
 
+                    @Override
+                    public void onFailure(Call<DefaultResponse> call, Throwable t) {
+
+                        Toast.makeText(teacher_reg.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
 
         //VERIFICATION OF TEACHER KEY FROM SCHOOL GENERATED KEY
 
