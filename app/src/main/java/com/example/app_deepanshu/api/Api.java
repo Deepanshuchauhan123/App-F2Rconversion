@@ -5,14 +5,24 @@ import com.example.app_deepanshu.StudentLoginResponse;
 import com.example.app_deepanshu.models.DefaultResponse;
 import com.example.app_deepanshu.stu_login;
 
+import java.util.List;
+
+import javax.security.auth.Subject;
+
+import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Api {
 
@@ -106,4 +116,42 @@ public interface Api {
             @Field("username") String username,
             @Field("password") String password
     );
+    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+    @GET("/")
+    Call<List<Subject>> getSubjects();
+
+
+
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @GET("topic")
+//    Call<List<Topic>> getTopics(@Query("search") int id);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @GET("question")
+//    Call<List<Question>> getQuestions(@Query("search") int id);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @GET("choice")
+//    Call<List<Choice>> getChoices(@Query("search") int id);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @GET("edu")
+//    Call<List<Notes>> getNotes(@Query("search") int id);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @POST("SubjectCreate")
+//    Call<Subject> postSubject(@Body Subject subject);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @POST("module/ModuleCreate")
+//    Call<Module> postModule(@Body Module module);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @POST("topic/TopicCreate")
+//    Call<Topic> postTopic(@Body Topic topic);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @POST("question/QuestionCreate")
+//    Call<Question> postQuestion(@Body Question question);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @POST("choice/ChoiceCreate")
+//    Call<Choice> postChoice(@Body Choice choice);
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @Multipart
+//    @POST("edu/NoteCreate")
+//    Call<Notes> uploadNotes(@Part MultipartBody.Part file,
+//                            @Part("module") Integer module);
 }
