@@ -87,6 +87,7 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
         String key_teach=school_teach_key.getText().toString().trim();
         String board= board_name.getText().toString().trim();
         String mob1 = schl_mobile.getText().toString().trim();
+        String confirmpass=cnf_pass.getText().toString().trim();
         String area1= scl_location.getText().toString().trim();
         String state1= school_state.getText().toString().trim();
 
@@ -101,6 +102,11 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
         if (pass1.length() < 6) {
             password.setError("Minimum length of Password is 6");
             password.requestFocus();
+            return;
+        }
+        if(!pass1.equals(confirmpass)){
+            cnf_pass.setError("Password and Confirm password should match");
+            cnf_pass.requestFocus();
             return;
         }
 
@@ -160,6 +166,7 @@ public class School_Reg extends AppCompatActivity implements View.OnClickListene
                 if(response.code()==201){
                     DefaultResponse dr=response.body();
                     Toast.makeText(School_Reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(School_Reg.this,School_login.class));
                 }else {
                     Toast.makeText(School_Reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
                 }

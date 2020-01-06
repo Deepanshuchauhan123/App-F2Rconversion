@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_main_main"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Quiz_Subjects_List"></activity>
+        <activity android:name=".FeedBack_Student"></activity>
         <activity android:name=".Add_Student" />
         <activity android:name=".School_Teacher_List_Display" />
         <activity android:name=".school_main_grid" />

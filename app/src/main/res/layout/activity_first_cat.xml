@@ -38,7 +38,7 @@
                 android:layout_marginTop="40dp"
                 android:inputType="textWebEmailAddress"
                 android:paddingLeft="10dp"
-                android:hint="@string/e_mail"/>
+                android:hint="@string/Adhaar_no"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 

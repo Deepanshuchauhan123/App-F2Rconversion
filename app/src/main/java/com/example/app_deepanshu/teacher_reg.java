@@ -31,7 +31,7 @@ import retrofit2.Response;
 public class teacher_reg extends AppCompatActivity implements View.OnClickListener {
 
     ProgressBar simpleProgressBar;
-    EditText email1,password,sch_name,teacher_adhaar,teach_name,school_Key,teach_mobile,teach_area,teach_state;
+    EditText email1,password,sch_name,teacher_adhaar,teach_name,school_Key,teach_mobile,teach_area,teach_state,cnf_pass;
     Integer sch_id;
     //private FirebaseAuth mAuth;
 
@@ -50,6 +50,7 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
         school_Key=findViewById(R.id.school_key);
         sch_name=findViewById(R.id.school_name);
         teach_mobile=findViewById(R.id.teacher_mobile);
+        cnf_pass=findViewById(R.id.cnf_password);
         teach_area=findViewById(R.id.teacher_village);
         teach_state=findViewById(R.id.teacher_state);
         findViewById(R.id.after_verify).setVisibility(View.GONE);
@@ -101,23 +102,47 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
         String email= email1.getText().toString().trim();
         String pass1 = password.getText().toString().trim();
-        String sch_name1 = teacher_adhaar.getText().toString().trim();
+        String adhaar = teacher_adhaar.getText().toString().trim();
         String schl_key = school_Key.getText().toString().trim();
         String name1= teach_name.getText().toString().trim();
+        String cnf_pas=cnf_pass.getText().toString().trim();
         String mob1 = teach_mobile.getText().toString().trim();
         String area1= teach_area.getText().toString().trim();
         String state1= teach_state.getText().toString().trim();
 
+                if (adhaar.isEmpty()) {
+                    teacher_adhaar.setError("Adhaar Number is required");
+                    teacher_adhaar.requestFocus();
+                    return;
+                }
+                if (!(adhaar.length()==16)) {
+                    teacher_adhaar.setError("Enter a Valid Adhaar Number");
+                    teacher_adhaar.requestFocus();
+                    return;
+                }
         //Email
         if (!Patterns.EMAIL_ADDRESS .matcher(email).matches()) {
             email1.setError("Email is Wrong");
             email1.requestFocus();
             return;
         }
+                //for name
+                if (name1.isEmpty()) {
+                    teach_name.setError("Teacher Name is Required");
+                    teach_name.requestFocus();
+                    return;
+                }
         //for Password
         if (pass1.length() < 6) {
             password.setError("Minimum length of Password is 6");
             password.requestFocus();
+            return;
+        }
+
+        if(!cnf_pas.equals(pass1))
+        {
+            cnf_pass.setError("Password and Confirm Password Should Match");
+            cnf_pass.requestFocus();
             return;
         }
 
@@ -128,31 +153,11 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        if (mob1.length() != 10) {
-            teach_mobile.setError("Length Exceeds");
+        if (mob1.length()!= 10) {
+            teach_mobile.setError("Enter a Valid mobile Number");
             teach_mobile.requestFocus();
             return;
         }
-
-        //for school name
-        if (sch_name1.isEmpty()) {
-            sch_name.setError("School Name is required");
-            sch_name.requestFocus();
-            return;
-        }
-
-        if (schl_key.isEmpty()) {
-            school_Key.setError("school  id is required");
-            school_Key.requestFocus();
-            return;
-        }
-        //for name
-        if (name1.isEmpty()) {
-            teach_name.setError("Teacher Name is Required");
-            teach_name.requestFocus();
-            return;
-        }
-
         //for area
         if (area1.isEmpty()) {
             teach_area.setError("Teacher Area is Required");
@@ -168,7 +173,7 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
 
                 Call<DefaultResponse> call= RetrofitClient.getInstance()
                         .getApi()
-                        .createTeacher(sch_name1,pass1,email,
+                        .createTeacher(adhaar,pass1,email,
                                 name1,mob1,area1,
                                 state1,sch_id);
                 call.enqueue(new Callback<DefaultResponse>() {
@@ -177,6 +182,7 @@ public class teacher_reg extends AppCompatActivity implements View.OnClickListen
                         if(response.code()==201){
                             DefaultResponse dr=response.body();
                             Toast.makeText(teacher_reg.this,"User Created Successfully",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(teacher_reg.this, first_cat.class));
                         }else {
                             Toast.makeText(teacher_reg.this,"User Already Exist",Toast.LENGTH_LONG).show();
                         }

@@ -116,6 +116,17 @@
     <string name="board">Board of school</string>
     <string name="Generate_key">Generate Teacher Verify Key</string>
     <string name="verify_key">Enter Verify Key</string>
+    <string name="que1">Does the teacher come well prepared in the classroom?</string>
+    <string name="que2">Do teachers provide interesting and important information in the classroom?</string>
+    <string name="que3">Does the teacher explain the subject well?</string>
+    <string name="que4">Is the communication skills of the teacher good or not?</string>
+    <string name="que5">Does the teacher force you to tuition?</string>
+    <string name="que6">Whether the teacher is able to answer the children\'s questions with full confidence or not?</string>
+    <string name="que7">Is the teacher able to generate interest in the subject or not?</string>
+    <string name="que8">Is the teacher available after the class to tell the questions related to your study or not?</string>
+    <string name="que9">Does the teacher tell you the importance and practical application of the subject or not?</string>
+    <string name="que10">Does the teacher teach you moral knowledge or not?</string>
+    <string name="teach_feed">Teacher\'s Feedback Form</string>
 
 
     <string-array name="stream">

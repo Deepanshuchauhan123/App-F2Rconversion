@@ -116,12 +116,9 @@ public interface Api {
             @Field("username") String username,
             @Field("password") String password
     );
-    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
-    @GET("/")
-    Call<List<Subject>> getSubjects();
-
-
-
+//    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
+//    @GET("/")
+//    Call<List<Subject>> getSubjects();
 //    @Headers("Authorization:token c71fd3475423a9d0d3000cc537809009abe99810")
 //    @GET("topic")
 //    Call<List<Topic>> getTopics(@Query("search") int id);
